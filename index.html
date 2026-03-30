@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chief Agent Officer — The AI-Native C-Suite Role</title>
+  <meta name="description" content="The Chief Agent Officer (CAO) is the executive responsible for deploying, governing, and scaling AI agents across the enterprise. Meet the role defining the next era of business." />
+  <meta property="og:title" content="Chief Agent Officer" />
+  <meta property="og:description" content="The executive role built for the age of AI agents." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #050508;
+      --surface: #0d0d12;
+      --surface2: #12121a;
+      --border: rgba(255,255,255,0.07);
+      --accent: #6c63ff;
+      --accent2: #a855f7;
+      --accent3: #22d3ee;
+      --text: #f0f0f5;
+      --muted: #8888a4;
+      --glow: rgba(108,99,255,0.15);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 3rem;
+      background: rgba(5,5,8,0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-size: 1.1rem; font-weight: 700; letter-spacing: -0.02em;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .nav-links { display: flex; gap: 2.5rem; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none; font-size: 0.9rem;
+      font-weight: 500; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      padding: 0.55rem 1.4rem;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff; border: none; border-radius: 8px;
+      font-size: 0.875rem; font-weight: 600; cursor: pointer;
+      text-decoration: none; transition: opacity 0.2s, transform 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 8rem 2rem 5rem;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(108,99,255,0.18), transparent 70%),
+                  radial-gradient(ellipse 50% 40% at 80% 100%, rgba(168,85,247,0.12), transparent 60%);
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      border: 1px solid rgba(108,99,255,0.4);
+      border-radius: 100px;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em;
+      color: var(--accent); background: rgba(108,99,255,0.08);
+      margin-bottom: 2rem; text-transform: uppercase;
+    }
+    .hero-badge span { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
+
+    h1 {
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 900; letter-spacing: -0.04em; line-height: 0.95;
+      margin-bottom: 1.5rem;
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #fff 0%, var(--accent) 40%, var(--accent2) 70%, var(--accent3) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.35rem);
+      color: var(--muted); max-width: 640px; margin: 0 auto 3rem;
+      font-weight: 400; line-height: 1.7;
+    }
+    .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      padding: 1rem 2.2rem;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff; border: none; border-radius: 12px;
+      font-size: 1rem; font-weight: 600; cursor: pointer;
+      text-decoration: none; transition: opacity 0.2s, transform 0.2s;
+      box-shadow: 0 0 40px rgba(108,99,255,0.3);
+    }
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-2px); }
+    .btn-outline {
+      padding: 1rem 2.2rem;
+      background: transparent; color: var(--text);
+      border: 1px solid var(--border); border-radius: 12px;
+      font-size: 1rem; font-weight: 600; cursor: pointer;
+      text-decoration: none; transition: border-color 0.2s, transform 0.2s;
+    }
+    .btn-outline:hover { border-color: rgba(255,255,255,0.3); transform: translateY(-2px); }
+
+    .hero-stats {
+      display: flex; gap: 3rem; margin-top: 5rem; justify-content: center;
+      flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-size: 2.5rem; font-weight: 800; letter-spacing: -0.03em;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .stat-label { font-size: 0.85rem; color: var(--muted); margin-top: 0.3rem; }
+
+    /* ── SECTION WRAPPER ── */
+    section { padding: 7rem 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 1rem;
+    }
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 800; letter-spacing: -0.03em;
+      line-height: 1.1; margin-bottom: 1.2rem;
+    }
+    .section-sub {
+      font-size: 1.1rem; color: var(--muted); max-width: 600px; line-height: 1.7;
+    }
+
+    /* ── WHAT IS ── */
+    .what-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+      margin-top: 4rem; border-radius: 20px; overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .what-cell {
+      background: var(--surface); padding: 2.5rem;
+      border: 1px solid var(--border);
+      transition: background 0.2s;
+    }
+    .what-cell:hover { background: var(--surface2); }
+    .what-cell-icon {
+      font-size: 2rem; margin-bottom: 1rem;
+    }
+    .what-cell h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.7rem; }
+    .what-cell p { font-size: 0.95rem; color: var(--muted); line-height: 1.7; }
+
+    /* ── MANDATE CARDS ── */
+    .mandate-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+      margin-top: 4rem;
+    }
+    .mandate-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px; padding: 2rem;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+      position: relative; overflow: hidden;
+    }
+    .mandate-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      opacity: 0; transition: opacity 0.2s;
+    }
+    .mandate-card:hover { transform: translateY(-4px); border-color: rgba(108,99,255,0.3); box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+    .mandate-card:hover::before { opacity: 1; }
+    .mandate-num {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em;
+      color: var(--accent); margin-bottom: 1rem;
+    }
+    .mandate-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.7rem; }
+    .mandate-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+
+    /* ── VS TABLE ── */
+    .vs-section { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .vs-table { width: 100%; border-collapse: collapse; margin-top: 3rem; }
+    .vs-table th {
+      padding: 1rem 1.5rem; text-align: left;
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--muted); border-bottom: 1px solid var(--border);
+    }
+    .vs-table th:nth-child(3) { color: var(--accent); }
+    .vs-table td {
+      padding: 1rem 1.5rem; font-size: 0.95rem;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      vertical-align: top;
+    }
+    .vs-table td:first-child { font-weight: 600; }
+    .vs-table td:nth-child(2) { color: var(--muted); }
+    .vs-table td:nth-child(3) { color: var(--text); }
+    .vs-table tr:hover td { background: rgba(108,99,255,0.04); }
+    .check { color: #22d3ee; }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 3rem;
+    }
+    .skill-item {
+      display: flex; gap: 1rem; align-items: flex-start;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.5rem;
+    }
+    .skill-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; flex-shrink: 0;
+    }
+    .skill-item h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .skill-item p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── TIMELINE ── */
+    .timeline { margin-top: 3rem; position: relative; }
+    .timeline::before {
+      content: ''; position: absolute; left: 18px; top: 0; bottom: 0;
+      width: 2px; background: linear-gradient(to bottom, var(--accent), var(--accent2), transparent);
+    }
+    .timeline-item { display: flex; gap: 2rem; margin-bottom: 2.5rem; position: relative; }
+    .timeline-dot {
+      width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; font-weight: 700; color: #fff; z-index: 1;
+    }
+    .timeline-content { padding-top: 0.4rem; }
+    .timeline-content h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .timeline-content p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── CTA ── */
+    .cta-section {
+      text-align: center; padding: 8rem 2rem;
+      background: radial-gradient(ellipse 80% 60% at 50% 100%, rgba(108,99,255,0.15), transparent 70%);
+    }
+    .cta-section h2 {
+      font-size: clamp(2rem, 5vw, 4rem);
+      font-weight: 900; letter-spacing: -0.04em; margin-bottom: 1.5rem;
+    }
+    .cta-section p { font-size: 1.15rem; color: var(--muted); max-width: 500px; margin: 0 auto 2.5rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 3rem 2rem; text-align: center;
+    }
+    footer p { font-size: 0.85rem; color: var(--muted); }
+    footer a { color: var(--accent); text-decoration: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .what-grid { grid-template-columns: 1fr; }
+      .mandate-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .hero-stats { gap: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Chief Agent Officer®</div>
+  <div class="nav-links">
+    <a href="#what">The Role</a>
+    <a href="#mandate">Mandate</a>
+    <a href="#skills">Skills</a>
+    <a href="#roadmap">Roadmap</a>
+  </div>
+  <a href="#contact" class="nav-cta">Get in Touch</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge"><span></span> Defining the AI-Native C-Suite</div>
+  <h1>
+    Meet the<br />
+    <span class="gradient-text">Chief Agent Officer</span>
+  </h1>
+  <p class="hero-sub">
+    The enterprise just got a new seat at the table. The CAO owns, governs, and scales 
+    your AI agents — turning autonomous systems from experiments into competitive advantage.
+  </p>
+  <div class="hero-actions">
+    <a href="#what" class="btn-primary">Explore the Role</a>
+    <a href="#contact" class="btn-outline">Talk to Us</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">73%</div>
+      <div class="stat-label">of enterprises deploying AI agents<br>by 2026</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">0%</div>
+      <div class="stat-label">have dedicated executive<br>governance for them</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">1</div>
+      <div class="stat-label">role to change that —<br>the CAO</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IS -->
+<section id="what">
+  <div class="container">
+    <div class="section-label">The Role</div>
+    <h2 class="section-title">What is a<br>Chief Agent Officer?</h2>
+    <p class="section-sub">
+      As AI agents proliferate across every business function, organisations need a dedicated 
+      executive to own the strategy, governance, and outcomes. That's the CAO.
+    </p>
+    <div class="what-grid">
+      <div class="what-cell">
+        <div class="what-cell-icon">🧠</div>
+        <h3>Not just AI strategy</h3>
+        <p>The CAO goes beyond the CAIO. They don't just advise on AI — they run the agents, own the infrastructure, and are accountable for outcomes delivered by autonomous systems.</p>
+      </div>
+      <div class="what-cell">
+        <div class="what-cell-icon">⚙️</div>
+        <h3>Operational, not advisory</h3>
+        <p>Where the CTO builds the systems and the CDO manages the data, the CAO operates the agents that sit on top — orchestrating workflows, managing risk, and driving ROI.</p>
+      </div>
+      <div class="what-cell">
+        <div class="what-cell-icon">🛡️</div>
+        <h3>Governance owner</h3>
+        <p>Autonomous agents make decisions. Someone must be accountable. The CAO owns the guardrails, audit trails, escalation paths, and ethical frameworks that keep agents aligned.</p>
+      </div>
+      <div class="what-cell">
+        <div class="what-cell-icon">🚀</div>
+        <h3>Competitive differentiator</h3>
+        <p>The companies that scale agents fastest will win. The CAO is the executive function that turns ad-hoc AI experiments into a coordinated fleet of business-critical agents.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MANDATE -->
+<section id="mandate" style="background: var(--surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+  <div class="container">
+    <div class="section-label">Mandate</div>
+    <h2 class="section-title">The CAO's six<br>core responsibilities</h2>
+    <p class="section-sub">
+      Owning AI agents is a full-time executive job. Here's what it looks like in practice.
+    </p>
+    <div class="mandate-grid">
+      <div class="mandate-card">
+        <div class="mandate-num">01</div>
+        <h3>Agent Strategy & Portfolio</h3>
+        <p>Define which agents get built, bought, or banned. Prioritise the agent portfolio against business outcomes — not technology novelty.</p>
+      </div>
+      <div class="mandate-card">
+        <div class="mandate-num">02</div>
+        <h3>Governance & Risk</h3>
+        <p>Set the rules agents operate under. Own the risk frameworks, compliance controls, and escalation protocols that keep autonomous systems safe.</p>
+      </div>
+      <div class="mandate-card">
+        <div class="mandate-num">03</div>
+        <h3>Infrastructure & Tooling</h3>
+        <p>Partner with engineering to select agent runtimes, observability stacks, memory systems, and the orchestration layers that agents run on.</p>
+      </div>
+      <div class="mandate-card">
+        <div class="mandate-num">04</div>
+        <h3>Cross-Functional Deployment</h3>
+        <p>Drive agent adoption across sales, ops, finance, HR, and security — removing the friction that keeps agents stuck in proof-of-concept.</p>
+      </div>
+      <div class="mandate-card">
+        <div class="mandate-num">05</div>
+        <h3>Performance & ROI</h3>
+        <p>Define agent KPIs, measure the value delivered, and report outcomes to the board. The CAO makes the business case visible and defensible.</p>
+      </div>
+      <div class="mandate-card">
+        <div class="mandate-num">06</div>
+        <h3>Talent & Culture</h3>
+        <p>Build the team that builds the agents. Champion AI-native culture, upskill existing teams, and attract the specialists who know how agents actually work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VS TABLE -->
+<section class="vs-section" id="compare">
+  <div class="container">
+    <div class="section-label">How the CAO fits</div>
+    <h2 class="section-title">CAO vs the existing C-Suite</h2>
+    <p class="section-sub">The CAO doesn't replace your existing leaders — it fills the gap between AI ambition and AI execution.</p>
+    <table class="vs-table">
+      <thead>
+        <tr>
+          <th>Domain</th>
+          <th>Traditional Owner</th>
+          <th>CAO Adds</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>AI Technology</td>
+          <td>CTO — builds the platform</td>
+          <td><span class="check">✦</span> Runs the agents on top of it</td>
+        </tr>
+        <tr>
+          <td>AI Policy</td>
+          <td>CAIO — sets the strategy</td>
+          <td><span class="check">✦</span> Executes it operationally</td>
+        </tr>
+        <tr>
+          <td>Data</td>
+          <td>CDO — governs the data</td>
+          <td><span class="check">✦</span> Puts agents to work on it</td>
+        </tr>
+        <tr>
+          <td>Risk</td>
+          <td>CRO — manages enterprise risk</td>
+          <td><span class="check">✦</span> Manages agent-specific risk</td>
+        </tr>
+        <tr>
+          <td>Operations</td>
+          <td>COO — runs the business</td>
+          <td><span class="check">✦</span> Automates it with agents</td>
+        </tr>
+        <tr>
+          <td>Security</td>
+          <td>CISO — secures the systems</td>
+          <td><span class="check">✦</span> Secures agent access & actions</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="section-label">Skills Profile</div>
+    <h2 class="section-title">What makes a great CAO?</h2>
+    <p class="section-sub">This role demands a rare combination — technical depth, business acumen, and governance instinct.</p>
+    <div class="skills-grid">
+      <div class="skill-item">
+        <div class="skill-icon">🤖</div>
+        <div>
+          <h4>Agent Architecture Literacy</h4>
+          <p>Understands how LLMs, tools, memory, and orchestration layers work — well enough to make strategic decisions without being an ML researcher.</p>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-icon">📊</div>
+        <div>
+          <h4>Business Outcome Orientation</h4>
+          <p>Relentlessly ties agent deployments to revenue, cost, speed, or risk reduction. Never deploys for the sake of novelty.</p>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-icon">⚖️</div>
+        <div>
+          <h4>Governance & Ethics Instinct</h4>
+          <p>Innately understands where autonomous systems need guardrails — and builds the frameworks before regulators force them to.</p>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-icon">🌐</div>
+        <div>
+          <h4>Cross-Functional Influence</h4>
+          <p>Can walk into any business unit and drive adoption. The CAO is equal parts technologist, operator, and change manager.</p>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-icon">🔍</div>
+        <div>
+          <h4>Risk & Observability Mindset</h4>
+          <p>Insists on logging, tracing, and audit trails for every agent action. Knows that what you can't measure, you can't govern.</p>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-icon">⚡</div>
+        <div>
+          <h4>Execution Velocity</h4>
+          <p>The agent landscape moves fast. The CAO ships, learns, and iterates — without sacrificing governance for speed.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section id="roadmap" style="background: var(--surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+  <div class="container">
+    <div class="section-label">Roadmap</div>
+    <h2 class="section-title">The CAO maturity journey</h2>
+    <p class="section-sub">Most organisations start with ad-hoc AI experiments. The CAO is the function that matures them into enterprise capability.</p>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot">1</div>
+        <div class="timeline-content">
+          <h4>Audit & Inventory</h4>
+          <p>Map every AI agent and LLM integration already running across the business. Most organisations have dozens they don't know about. Start there.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">2</div>
+        <div class="timeline-content">
+          <h4>Governance Foundation</h4>
+          <p>Establish agent use-case approval processes, risk tiers, data access policies, and escalation protocols. Define what agents can and can't do.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">3</div>
+        <div class="timeline-content">
+          <h4>Strategic Deployment</h4>
+          <p>Prioritise 3–5 high-value agent use cases. Deploy, instrument, and measure relentlessly. Build the internal playbook that others follow.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">4</div>
+        <div class="timeline-content">
+          <h4>Scaling the Fleet</h4>
+          <p>Systematise agent deployment. Build shared infrastructure, reusable components, and a centre of excellence. Turn one team's success into the whole company's default.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">5</div>
+        <div class="timeline-content">
+          <h4>Continuous Optimisation</h4>
+          <p>Agents are never done. Monitor performance, retrain on new data, deprecate what's not working, and stay ahead of the model capability curve.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="section-label">Get started</div>
+  <h2 class="section-title gradient-text">Ready to define<br>your AI future?</h2>
+  <p>Whether you're hiring a CAO, becoming one, or building the capability inside your organisation — let's talk.</p>
+  <a href="mailto:hello@thechiefagentofficer.com" class="btn-primary">Get in Touch</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Chief Agent Officer. All rights reserved. 
+    <a href="mailto:hello@thechiefagentofficer.com">hello@thechiefagentofficer.com</a>
+  </p>
+</footer>
+
+</body>
+</html>

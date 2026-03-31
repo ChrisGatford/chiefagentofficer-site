@@ -430,7 +430,7 @@
 </footer>
 
 <script>
-  const GAS_URL = 'REPLACE_WITH_GAS_URL';
+  const GAS_URL = 'https://cao-form-handler.hacklabs.workers.dev';
 
   function focusHirer() { setTimeout(() => document.getElementById('h-name').focus(), 400); }
   function focusCandidate() { setTimeout(() => document.getElementById('c-name').focus(), 400); }
@@ -477,14 +477,11 @@
     }
 
     try {
-      if (GAS_URL === 'REPLACE_WITH_GAS_URL') {
-        // mailto fallback until GAS deployed
-        const sub = encodeURIComponent('CAO ' + (type==='hirer'?'Hirer Enquiry':'Candidate Application') + ' — ' + data.name);
-        const body = encodeURIComponent(Object.entries(data).map(([k,v])=>k+': '+v).join('\n'));
-        window.location.href = 'mailto:hello@thechiefagentofficer.com?subject='+sub+'&body='+body;
-        showSuccess(type); return;
-      }
-      const res = await fetch(GAS_URL, { method: 'POST', body: JSON.stringify(data) });
+      const res = await fetch(GAS_URL, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+      });
       const result = await res.json();
       if (result.success) { showSuccess(type); }
       else { throw new Error(result.error); }

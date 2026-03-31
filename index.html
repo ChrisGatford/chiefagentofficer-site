@@ -477,17 +477,22 @@
     }
 
     try {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 15000);
       const res = await fetch(GAS_URL, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
+        signal: controller.signal
       });
+      clearTimeout(timer);
       const result = await res.json();
       if (result.success) { showSuccess(type); }
       else { throw new Error(result.error); }
     } catch(err) {
-      console.error(err);
-      alert('Something went wrong — please email hello@thechiefagentofficer.com directly.');
+      console.error('Form submission error:', err);
+      const msg = err.message || 'Unknown error';
+      alert('Submission failed: ' + msg + '\n\nPlease try again or email hello@thechiefagentofficer.com');
       btn.disabled = false;
       btn.textContent = type === 'hirer' ? 'Enquire About a CAO →' : 'Apply as a CAO →';
     }
